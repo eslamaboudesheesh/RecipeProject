@@ -1,30 +1,30 @@
 
 <div class="col-md-12">
  <br>
-<form [formGroup]="recipeFrom" (ngSubmit)="onSubmit(form)" #form="ngForm">
+<form [formGroup]="recipeFrom" (ngSubmit)="onSubmit()">
   <div class="row">
     <div class="col-md-12">
-      <button class="btn btn-success" [disabled]=" form.invalid">Save</button>
-      <button class="btn btn-danger">Cancel</button>
+      <button type="submit" class="btn btn-success"  [disabled] ="!recipeFrom.valid">Save</button>
+      <button class="btn btn-danger" type="button"  (click)="onCancel()">Cancel</button>
      </div>
     </div>
   <div class="form-group">
     <label for="formGroupExampleInput">Name</label>
-    <input type="text" class="form-control" id="formGroupExampleInput" formControlName="name">
+    <input type="text" class="form-control" id="formGroupExampleInput" formControlName="name" >
   </div>
   <div class="form-group">
     <label for="formGroupExampleInput2">Img URL</label>
-    <input type="text" class="form-control" id="formGroupExampleInput2" formControlName="imgPath">
+    <input type="text" class="form-control" id="formGroupExampleInput2" formControlName="imgPath" #imgPath>
   </div>
   <div class="row">
     <div class="col-md-10">
-      <img src="" class="img-responsive">
+      <img [src]="imgPath.value" class="img-responsive imgPath" >
     </div>
   </div>
 
   <div class="form-group">
       <label for="exampleFormControlTextarea1">Description </label>
-      <textarea class="form-control" id="exampleFormControlTextarea1" rows="6" formControlName="description" ></textarea>
+      <textarea class="form-control" id="exampleFormControlTextarea1" rows="6" formControlName="description" required ></textarea>
     </div>
 
   <div class="form-row" formArrayName="ingerdients">
@@ -38,13 +38,13 @@
         <input type="number" class="form-control" id="inputState" formControlName="amount">
       </div>
       <div class="form-group col-md-2">
-  <button class="btn-danger btn">X</button>
+  <button class="btn-danger btn" type="button" (click)="onDeletIngerdtion(i)">X</button>
       </div>
     </div>
     <hr>
     <div class="row col-sm-12">
       <div class="col-md-12">
-          <button class="btn btn-success"  (click)="addNewIngerdientField()">addnew Ingerdient</button>
+          <button class="btn btn-success"  type="button" (click)="addNewIngerdientField()">addnew Ingerdient</button>
           </div>
      </div>
   </div>

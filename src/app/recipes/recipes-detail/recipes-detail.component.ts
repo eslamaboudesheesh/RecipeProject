@@ -19,7 +19,7 @@ export class RecipesDetailComponent implements OnInit {
     this.route.params.subscribe((params:Params)=>{
       this.id = +params['id'];
       this.recipex = this.recServ.getRecipe(this.id);
-// + to change id from string to number 
+// + to change id from string to number
 
     })
   }
@@ -29,6 +29,10 @@ export class RecipesDetailComponent implements OnInit {
   onEditRecipe(){
    this.router.navigate(['edit'],{relativeTo:this.route});
 //  this.router.navigate(['../',this.id,'edit'] ,{relativeTo:this.route});
+  }
+  onDeletRecipe(){
+    this.recServ.deleteRecipe(this.id);
+    this.router.navigate(['/recipes']);
   }
 
 }

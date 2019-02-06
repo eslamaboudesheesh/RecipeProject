@@ -16,6 +16,7 @@ import { DropdwoneDirective } from './shared/dropdwone.directive';
 import { ShoppingListService } from './shopping-list/shopping-list.service';
 import { RscipeStartComponent } from './recipes/rscipe-start/rscipe-start.component';
 import { RecipeEditedComponent } from './recipes/recipe-edited/recipe-edited.component';
+import { RecipeService } from './recipes/recipe.service';
 
 @NgModule({
   declarations: [
@@ -37,7 +38,7 @@ import { RecipeEditedComponent } from './recipes/recipe-edited/recipe-edited.com
     FormsModule,
     ReactiveFormsModule
   ],
-  providers: [ShoppingListService],
+  providers: [ShoppingListService ,RecipeService],
   bootstrap: [ AppComponent]
 })
 export class AppModule { }
