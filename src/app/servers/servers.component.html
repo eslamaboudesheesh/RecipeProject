@@ -1,0 +1,23 @@
+<p>
+  servers works!
+</p>
+<button class="btn btn-primary" [disabled]='!allowServer' (click)='oncreated()'>
+  show now 
+</button>
+<p>{{onCreated}}</p>
+<input type="text" class="form-control" (input)='accessValue($event)'>
+<input type="text" class="form-control" [(ngModel)]='values'>
+
+<h2 *ngIf="testIf; else noServiec">hello  serviece created {{values}}</h2>
+
+<ng-template  #noServiec>
+  <h2>hello NO serviece created </h2>
+</ng-template >
+
+<p *ngFor = "let log of logItem ; let i = index " 
+ [ngStyle]= "{backgroundColor : i > 4 ? 'blue' : 'transparent' }"
+  [ngClass]= "{'whitClass' : i >4 }" >
+{{log}}
+</p>
+<app-server *ngFor= 'let servic of servicse' >
+</app-server>
