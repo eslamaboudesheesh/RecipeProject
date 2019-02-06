@@ -14,8 +14,8 @@ export class RecipesListComponent implements OnInit , OnDestroy {
 
   subcribtion:Subscription;
   recipes: Recipes[];
-  constructor(private recipeService:RecipeService , private router :Router,
-    private route:ActivatedRoute) {
+  constructor(private recipeService: RecipeService , private router: Router,
+    private route: ActivatedRoute) {
    }
   ngOnInit() {
    this.subcribtion = this.recipeService.changeRecipe.subscribe((recipe: Recipes[]) => {
@@ -24,8 +24,8 @@ export class RecipesListComponent implements OnInit , OnDestroy {
     this.recipes = this.recipeService.getRecipes();
   }
 
-  onNewRecipe(){
-     this.router.navigate(['new'] ,{relativeTo: this.route});
+  onNewRecipe() {
+     this.router.navigate(['new'] , { relativeTo: this.route});
 
      //add new to the locahlhost:4200/recipes
   }
