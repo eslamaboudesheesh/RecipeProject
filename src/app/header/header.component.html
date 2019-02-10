@@ -16,24 +16,27 @@
       <li class="nav-item">
         <a class="nav-link" [routerLink]="[ '/shopping-list' ]" routerLinkActive="active">Shopping List</a>
       </li>
-     
-<ul class="nav navbar-nav navbar-right" >
+
+<ul class="nav navbar-nav navbar-left" >
       <li class="nav-item dropdown   " >
         <a class="nav-link dropdown-toggle"  id="navbardrop" data-toggle="dropdown">
          Manage
         </a>
         <div class="dropdown-menu" >
-          <a class="dropdown-item" style="cursor: pointer" > Save Data</a>
-          <a class="dropdown-item" style="cursor: pointer"> Fetch Data</a>
-         
+          <a class="dropdown-item" style="cursor: pointer" (click)="saveData()" > Save Data</a>
+          <a class="dropdown-item" style="cursor: pointer" (click)="showData()"> Fetch Data</a>
+
         </div>
       </li>
     </ul>
-      
-      
+
+    <li class="nav-item">
+      <a class="nav-link" [routerLink]="[ '/signup' ]" routerLinkActive="active">Register</a>
+    </li>
+
     </ul>
 
- 
 
-  </div> 
+
+  </div>
 </nav>

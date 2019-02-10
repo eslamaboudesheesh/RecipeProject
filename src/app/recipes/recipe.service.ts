@@ -32,7 +32,10 @@ export class RecipeService {
 
 
   constructor(private servShop: ShoppingListService) { }
-
+setRecipes(recipe: Recipes[]) {
+this.recipes = recipe;
+this.changeRecipe.next(this.recipes.slice());
+}
 
   getRecipes() {
     return this.recipes.slice();
