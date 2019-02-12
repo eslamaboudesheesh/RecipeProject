@@ -1,5 +1,6 @@
 import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 import { DataStorgeService } from '../shared/data-storge.service';
+import { AuthService } from '../auth/auth.service';
 
 @Component({
   selector: 'app-header',
@@ -8,7 +9,7 @@ import { DataStorgeService } from '../shared/data-storge.service';
 })
 export class HeaderComponent implements OnInit {
 @Output() featureSelected = new EventEmitter<string>();
-  constructor(private storeData: DataStorgeService) { }
+  constructor(private storeData: DataStorgeService , private authSer: AuthService) { }
 
   ngOnInit() {
   }
@@ -25,6 +26,10 @@ this.featureSelected.emit(featuer);
   }
   showData() {
     this.storeData.showRecipe();
+  }
+
+  onLogout(){
+    this.authSer.logOut();
   }
 
 }

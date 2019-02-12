@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-md bg-dark navbar-dark">
   <!-- Brand -->
-  <a class="navbar-brand" [routerLink]="[ ' ' ]"  routerLinkActive="active">Rescipe Book</a>
+  <a class="navbar-brand" [routerLink]="[ '' ]"  routerLinkActive="active">Rescipe Book</a>
 
   <!-- Toggler/collapsibe Button -->
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
@@ -18,7 +18,7 @@
       </li>
 
 <ul class="nav navbar-nav navbar-left" >
-      <li class="nav-item dropdown   " >
+      <li class="nav-item dropdown " *ngIf="authSer.isAuth()" >
         <a class="nav-link dropdown-toggle"  id="navbardrop" data-toggle="dropdown">
          Manage
         </a>
@@ -29,11 +29,19 @@
         </div>
       </li>
     </ul>
-
     <li class="nav-item">
+      <a class="nav-link" routerLinkActive="active" (click)="onLogout()" *ngIf= "authSer.isAuth()" > logOut </a>
+    </li>
+    <ul style="display: flex">
+      <ng-template [ngIf]= "!authSer.isAuth()">
+    <li class="nav-item" style="list-style-type: none">
       <a class="nav-link" [routerLink]="[ '/signup' ]" routerLinkActive="active">Register</a>
     </li>
-
+    <li class="nav-item" style="list-style-type: none">
+      <a class="nav-link" [routerLink]="[ '/signin' ]" routerLinkActive="active">logIn</a>
+    </li>
+  </ng-template>
+</ul>
     </ul>
 
 
